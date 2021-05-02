@@ -1,0 +1,42 @@
+﻿<Window x:Class="ListViewItems.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ListViewItems"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ListView Name="People" Background="AliceBlue" Grid.Column="0" Grid.RowSpan="3" 
+                  SelectionChanged="People_SelectionChanged" ItemsSource="{Binding AllPeople}"
+                  MouseDoubleClick="People_MouseDoubleClick">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}" FontWeight="DemiBold"/>
+                        <TextBlock Text=" "/>
+                        <TextBlock Text="{Binding Surname}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Label Content="{Binding Name}" Grid.Row="0" Grid.Column="1"/>
+        <Label Content="{Binding Surname}" Grid.Row="1" Grid.Column="1"/>
+        <Label Content="{Binding BirthDate}" Grid.Column="1" Grid.Row="2"/>
+
+        <Button x:Name="AddButton" Content="+" Click="AddButton_Click"
+                Grid.Column="0" Grid.Row="3" Margin="0, 10"/>
+    </Grid>
+</Window>
