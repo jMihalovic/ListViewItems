@@ -18,10 +18,10 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <ListView Name="People" Background="AliceBlue" Grid.Column="0" Grid.RowSpan="3" 
+        <ListBox Name="People" Background="AliceBlue" Grid.Column="0" Grid.RowSpan="3" 
                   SelectionChanged="People_SelectionChanged" ItemsSource="{Binding AllPeople}"
                   MouseDoubleClick="People_MouseDoubleClick">
-            <ListView.ItemTemplate>
+            <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Name}" FontWeight="DemiBold"/>
@@ -29,8 +29,8 @@
                         <TextBlock Text="{Binding Surname}"/>
                     </StackPanel>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
         <Label Content="{Binding Name}" Grid.Row="0" Grid.Column="1"/>
         <Label Content="{Binding Surname}" Grid.Row="1" Grid.Column="1"/>
